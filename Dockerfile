@@ -4,11 +4,15 @@ FROM node:6
 
 MAINTAINER trion development GmbH "info@trion.de"
 
-ENV HOME=/home/app
-RUN mkdir -p $HOME
-WORKDIR $HOME
+ARG NG_CLI_VERSION=1.0.0-beta.24
+ARG USER_HOME_DIR="/home/app"
+
+RUN mkdir -p $USER_HOME_DIR
+WORKDIR $USER_HOME_DIR
 
 
-RUN npm install -g angular-cli@1.0.0-beta.24 && npm cache clean
+RUN npm install -g angular-cli@$NG_CLI_VERSION && npm cache clean
 
 EXPOSE 4200
+
+USER 1000
