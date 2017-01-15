@@ -13,6 +13,7 @@ WORKDIR $USER_HOME_DIR
 
 RUN npm install -g angular-cli@$NG_CLI_VERSION && npm cache clean
 
+VOLUME "$USER_HOME_DIR/"
 EXPOSE 4200
 
 USER 1000
