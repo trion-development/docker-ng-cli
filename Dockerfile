@@ -10,12 +10,14 @@ ARG NG_CLI_VERSION=1.0.0-beta.32.3
 ARG USER_HOME_DIR="/app"
 ARG USER_ID=1000
 
-RUN curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 > /usr/bin/dumb-init \
+ENV NPM_CONFIG_LOGLEVEL warn
+
+RUN set -xe \
+    && curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 > /usr/bin/dumb-init \
     && chmod +x /usr/bin/dumb-init \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
-    && npm config -g delete loglevel \
-    && (cd "$USER_HOME_DIR"; npm install -g @angular/cli@$NG_CLI_VERSION && npm cache clean)
+    && (cd "$USER_HOME_DIR"; npm install -g @angular/cli@$NG_CLI_VERSION; npm cache clean)
 
 WORKDIR $USER_HOME_DIR
 
