@@ -14,7 +14,7 @@ RUN curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-ini
     && chmod +x /usr/bin/dumb-init \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
-    && npm config delete loglevel \
+    && npm config -g delete loglevel \
     && (cd "$USER_HOME_DIR"; npm install -g @angular/cli@$NG_CLI_VERSION && npm cache clean)
 
 WORKDIR $USER_HOME_DIR
