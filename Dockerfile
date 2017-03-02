@@ -11,7 +11,8 @@ ARG USER_HOME_DIR="/app"
 ARG USER_ID=1000
 
 ENV NPM_CONFIG_LOGLEVEL warn
-ENV HOME $USER_HOME_DIR
+#angular-cli rc0 crashes with .angular-cli.json in #HOME
+#ENV HOME $USER_HOME_DIR
 
 RUN set -xe \
     && curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 > /usr/bin/dumb-init \
@@ -21,9 +22,8 @@ RUN set -xe \
     && chmod a+rw $USER_HOME_DIR \
     && (cd "$USER_HOME_DIR"; npm install -g @angular/cli@$NG_CLI_VERSION; npm cache clean)
 
-WORKDIR $USER_HOME_DIR
-
 VOLUME "$USER_HOME_DIR/"
+WORKDIR $USER_HOME_DIR
 EXPOSE 4200
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
