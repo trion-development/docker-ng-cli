@@ -13,6 +13,7 @@ ARG USER_ID=1000
 ENV NPM_CONFIG_LOGLEVEL warn
 #angular-cli rc0 crashes with .angular-cli.json in #HOME
 #ENV HOME $USER_HOME_DIR
+ENV HOME /tmp
 
 RUN set -xe \
     && curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 > /usr/bin/dumb-init \
