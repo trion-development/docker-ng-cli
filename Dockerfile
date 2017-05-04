@@ -6,7 +6,7 @@ FROM node:6
 
 MAINTAINER trion development GmbH "info@trion.de"
 
-ARG NG_CLI_VERSION=1.0.1
+ARG NG_CLI_VERSION=1.0.2
 ARG USER_HOME_DIR="/app"
 ARG USER_ID=1000
 
