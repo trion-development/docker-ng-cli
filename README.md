@@ -36,6 +36,15 @@ docker run -u $(id -u) --rm -v "$PWD":/app trion/ng-cli sh -c "ng set --global p
 Note the Angular CLI docker container instance is removed after each execution, therefore the selection of the package manager will just influence the current execution.
 
 ### Using a shared cache
+
+You can use the regular yarn cache directory or specify a different directory.
+Make sure that you already have the cache directory initialized before using it with this docker image, otherwise the permissions might end up wrong.
+
+Using the regular yarn directory, which should be the right choice when using during regular development:
+```
+docker run -u $(id -u) --rm -v "$HOME/.cache/yarn":/tmp/.cache/yarn -v "$PWD":/app trion/ng-cli sh -c "ng set --global packageManager=yarn; ng new MyDemoProject"
+```
+
 Assuming you have a directory "../yarn-cache" with appropriate access rights, you can use it to create a new project using the following command
 
 ```
