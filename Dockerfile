@@ -1,13 +1,13 @@
 #simple angular-cli docker installation
 #docker build -t ng-cli .
 #or specify angular-cli version
-#docker build --build-arg NG_CLI_VERSION=1.2.5
+#docker build --build-arg NG_CLI_VERSION=1.2.6
 
 FROM node:6
 
 MAINTAINER trion development GmbH "info@trion.de"
 
-ARG NG_CLI_VERSION=1.2.5
+ARG NG_CLI_VERSION=1.2.6
 ARG USER_HOME_DIR="/tmp"
 ARG APP_DIR="/app"
 ARG USER_ID=1000
