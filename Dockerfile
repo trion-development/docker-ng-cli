@@ -24,8 +24,9 @@ RUN set -xe \
     && chmod a+rw $USER_HOME_DIR \
     && (cd "$USER_HOME_DIR"; npm install -g @angular/cli@$NG_CLI_VERSION; npm install -g yarn; npm cache clean)
 
-VOLUME "$USER_HOME_DIR/.cache/yarn"
-VOLUME "$APP_DIR/"
+#not declared to avoid anonymous volume leak
+#VOLUME "$USER_HOME_DIR/.cache/yarn"
+#VOLUME "$APP_DIR/"
 WORKDIR $APP_DIR
 EXPOSE 4200
 
