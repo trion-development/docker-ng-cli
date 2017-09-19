@@ -3,7 +3,7 @@
 #or specify angular-cli version
 #docker build --build-arg NG_CLI_VERSION=1.4.2
 
-FROM node:6
+FROM node:8
 
 MAINTAINER trion development GmbH "info@trion.de"
 
@@ -16,13 +16,16 @@ ENV NPM_CONFIG_LOGLEVEL warn
 #angular-cli rc0 crashes with .angular-cli.json in user home
 ENV HOME "$USER_HOME_DIR"
 
+# npm 5 uses different userid when installing packages, as workaround su to node when installing
+# see https://github.com/npm/npm/issues/16766
 RUN set -xe \
     && curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 > /usr/bin/dumb-init \
     && chmod +x /usr/bin/dumb-init \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
     && chmod a+rw $USER_HOME_DIR \
-    && (cd "$USER_HOME_DIR"; npm install -g @angular/cli@$NG_CLI_VERSION; npm install -g yarn; npm cache clean)
+    && chown -R node /usr/local/lib /usr/local/include /usr/local/share /usr/local/bin \
+    && (cd "$USER_HOME_DIR"; su node -c "npm install -g @angular/cli@$NG_CLI_VERSION; npm install -g yarn; npm cache clean --force")
 
 #not declared to avoid anonymous volume leak
 #VOLUME "$USER_HOME_DIR/.cache/yarn"
