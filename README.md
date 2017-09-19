@@ -3,6 +3,8 @@
 Docker container for Angular CLI as build container.
 Image on dockerhub: https://hub.docker.com/r/trion/ng-cli/
 
+Currently uses node 8 (npm 5).
+
 ## Example usage
 ```
 docker run -u $(id -u) --rm -v "$PWD":/app trion/ng-cli ng new MyDemo
