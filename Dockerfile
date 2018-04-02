@@ -21,6 +21,7 @@ ENV HOME "$USER_HOME_DIR"
 RUN set -xe \
     && apk add --no-cache \
        dumb-init \
+       git \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
     && chmod a+rw $USER_HOME_DIR \
