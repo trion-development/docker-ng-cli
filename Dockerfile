@@ -3,7 +3,7 @@
 #or specify angular-cli version
 #docker build --build-arg NG_CLI_VERSION=1.7.3
 
-FROM node:8-stretch
+FROM node:8-alpine
 
 MAINTAINER trion development GmbH "info@trion.de"
 
@@ -19,8 +19,8 @@ ENV HOME "$USER_HOME_DIR"
 # npm 5 uses different userid when installing packages, as workaround su to node when installing
 # see https://github.com/npm/npm/issues/16766
 RUN set -xe \
-    && curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64 > /usr/bin/dumb-init \
-    && chmod +x /usr/bin/dumb-init \
+    && apk add --no-cache \
+       dumb-init \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
     && chmod a+rw $USER_HOME_DIR \

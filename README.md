@@ -3,7 +3,7 @@
 Docker container for Angular CLI as build container.
 Image on dockerhub: https://hub.docker.com/r/trion/ng-cli/
 
-Currently uses node 8 (npm 5) and Debian stretch as base distribution.
+This is the alpine branch with node 8 (npm 5)
 
 ## Example usage
 ```
