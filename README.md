@@ -1,6 +1,7 @@
 # docker-ng-cli
 
-Docker container for Angular CLI as build container.
+Docker image for Angular CLI to use as build container.
+
 Image on dockerhub: https://hub.docker.com/r/trion/ng-cli/
 
 Currently uses node 8 (npm 5) and Debian stretch as base distribution.
