@@ -3,11 +3,15 @@
 #or specify angular-cli version
 #docker build --build-arg NG_CLI_VERSION=6.0.8
 
-FROM node:8-stretch
+FROM node:stretch
+
+#alternative to reduce size instead of alpine, but does not
+#include build tools for native compilation of npm packages
+#FROM node:8-slim
 
 MAINTAINER trion development GmbH "info@trion.de"
 
-ARG NG_CLI_VERSION=6.0.8
+ARG NG_CLI_VERSION=6.1.0
 ARG USER_HOME_DIR="/tmp"
 ARG APP_DIR="/app"
 ARG USER_ID=1000
