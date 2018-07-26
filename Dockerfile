@@ -1,7 +1,7 @@
 #simple angular-cli docker installation
 #docker build -t ng-cli .
 #or specify angular-cli version
-#docker build --build-arg NG_CLI_VERSION=6.0.8
+#docker build --build-arg NG_CLI_VERSION=6.1.0
 
 FROM node:stretch
 
