@@ -23,7 +23,7 @@ ENV HOME "$USER_HOME_DIR"
 # npm 5 uses different userid when installing packages, as workaround su to node when installing
 # see https://github.com/npm/npm/issues/16766
 RUN set -xe \
-    && curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64 > /usr/bin/dumb-init \
+    && curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64 > /usr/bin/dumb-init \
     && chmod +x /usr/bin/dumb-init \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
