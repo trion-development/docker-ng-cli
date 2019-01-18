@@ -20,11 +20,14 @@ ENV NPM_CONFIG_LOGLEVEL warn
 #angular-cli rc0 crashes with .angular-cli.json in user home
 ENV HOME "$USER_HOME_DIR"
 
+RUN apt-get update && apt-get install -qqy --no-install-recommends \
+    dumb-init \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+
 # npm 5 uses different userid when installing packages, as workaround su to node when installing
 # see https://github.com/npm/npm/issues/16766
 RUN set -xe \
-    && curl -sL https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64 > /usr/bin/dumb-init \
-    && chmod +x /usr/bin/dumb-init \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
     && chmod a+rw $USER_HOME_DIR \
