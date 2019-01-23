@@ -3,11 +3,12 @@
 #or specify angular-cli version
 #docker build --build-arg NG_CLI_VERSION=7.2.3
 
-FROM node:stretch
+#FROM node:alpine
 
 #alternative to reduce size instead of alpine, but does not
 #include build tools for native compilation of npm packages
-#FROM node:8-slim
+#we therefore add gcc
+FROM node:8-slim
 
 MAINTAINER trion development GmbH "info@trion.de"
 
@@ -16,12 +17,17 @@ ARG USER_HOME_DIR="/tmp"
 ARG APP_DIR="/app"
 ARG USER_ID=1000
 
+LABEL angular-cli-version=$NG_CLI_VERSION node=$NODE_VERSION
+
 ENV NPM_CONFIG_LOGLEVEL warn
 #angular-cli rc0 crashes with .angular-cli.json in user home
 ENV HOME "$USER_HOME_DIR"
 
 RUN apt-get update && apt-get install -qqy --no-install-recommends \
     dumb-init \
+    git \
+    build-essential \
+    python \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
