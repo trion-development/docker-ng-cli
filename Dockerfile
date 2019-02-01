@@ -28,8 +28,6 @@ EXPOSE 4200
 
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 
-USER $USER_ID
-
 RUN apt-get update && apt-get install -qqy --no-install-recommends \
     dumb-init \
     git \
@@ -48,3 +46,5 @@ RUN set -xe \
     && chmod a+rw $USER_HOME_DIR \
     && chown -R node /usr/local/lib /usr/local/include /usr/local/share /usr/local/bin \
     && (cd "$USER_HOME_DIR"; su node -c "npm install -g @angular/cli@$NG_CLI_VERSION; npm install -g yarn; chmod +x /usr/local/bin/yarn; npm cache clean --force")
+
+USER $USER_ID
