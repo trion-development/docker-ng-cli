@@ -1,7 +1,7 @@
 #simple angular-cli docker installation
 #docker build -t ng-cli .
 #or specify angular-cli version
-#docker build --build-arg NG_CLI_VERSION=7.2.4
+#docker build --build-arg NG_CLI_VERSION=7.3.0
 
 #FROM node:alpine
 
@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
     python \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ARG NG_CLI_VERSION=7.2.4
+ARG NG_CLI_VERSION=7.3.0
 LABEL angular-cli=$NG_CLI_VERSION node=$NODE_VERSION
 
 # npm 5 uses different userid when installing packages, as workaround su to node when installing
