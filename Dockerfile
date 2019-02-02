@@ -21,6 +21,7 @@ ENV NPM_CONFIG_LOGLEVEL warn
 ENV HOME "$USER_HOME_DIR"
 
 #not declared to avoid anonymous volume leak
+#but when not manually bound to host fs, performance will suffer!
 #VOLUME "$USER_HOME_DIR/.cache/yarn"
 #VOLUME "$APP_DIR/"
 WORKDIR $APP_DIR
@@ -44,6 +45,8 @@ RUN set -xe \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
     && chmod a+rw $USER_HOME_DIR \
+    && mkdir -p $APP_DIR \
+    && chown $USER_ID $APP_DIR \
     && chown -R node /usr/local/lib /usr/local/include /usr/local/share /usr/local/bin \
     && (cd "$USER_HOME_DIR"; su node -c "npm install -g @angular/cli@$NG_CLI_VERSION; npm install -g yarn; chmod +x /usr/local/bin/yarn; npm cache clean --force")
 
