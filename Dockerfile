@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
     git \
     build-essential \
     python \
+    procps \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ARG NG_CLI_VERSION=7.3.0
