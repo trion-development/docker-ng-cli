@@ -35,6 +35,8 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
     build-essential \
     python \
     procps \
+    rsync \
+    openssh-client \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ARG NG_CLI_VERSION=7.3.8
