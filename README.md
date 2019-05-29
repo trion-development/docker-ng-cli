@@ -6,6 +6,9 @@ Image on dockerhub: https://hub.docker.com/r/trion/ng-cli/
 
 Currently this image uses node 9 (npm 5) and Debian stretch as base distribution.
 
+The AngularCLI analytics feature is disabled by default to avoid problems in CI environments.
+If you want to opt-in, set the `NG_CLI_ANALYTICS` environment variable to an empty value.
+
 ## Example usage
 ```
 docker run -u $(id -u) --rm -v "$PWD":/app trion/ng-cli ng new MyDemo
