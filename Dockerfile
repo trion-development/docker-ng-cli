@@ -17,7 +17,7 @@ ARG APP_DIR="/app"
 ARG USER_ID=1000
 
 #reduce logging, disable angular-cli analytics for ci environment
-ENV NPM_CONFIG_LOGLEVEL=warn NG_CLI_ANALYTICS=ci
+ENV NPM_CONFIG_LOGLEVEL=warn NG_CLI_ANALYTICS=false
 
 #angular-cli rc0 crashes with .angular-cli.json in user home
 ENV HOME "$USER_HOME_DIR"
