@@ -1,7 +1,11 @@
 #simple angular-cli docker installation
 #docker build -t ng-cli .
 #or specify angular-cli version
-#docker build --build-arg NG_CLI_VERSION=8.2.0
+<<<<<<< HEAD
+#docker build --build-arg NG_CLI_VERSION=8.3.1
+=======
+#docker build --build-arg NG_CLI_VERSION=8.3.1
+>>>>>>> update to 8.2.1
 
 #FROM node:alpine
 
@@ -41,7 +45,11 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
     openssh-client \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ARG NG_CLI_VERSION=8.2.0
+<<<<<<< HEAD
+ARG NG_CLI_VERSION=8.3.1
+=======
+ARG NG_CLI_VERSION=8.3.1
+>>>>>>> update to 8.2.1
 LABEL angular-cli=$NG_CLI_VERSION node=$NODE_VERSION
 
 # npm 5 uses different userid when installing packages, as workaround su to node when installing
