@@ -14,7 +14,7 @@ git push -u origin ${VERSION}
 cd ..
 
 echo "Waiting for build docker-ng-cli"
-sleep 20m
+sleep 35m
 echo "Build should be done"
 
 cd docker-ng-cli-karma
