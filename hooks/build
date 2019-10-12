@@ -1,0 +1,2 @@
+docker build -f Dockerfile -t ${IMAGE_NAME}-amd64 .
+docker build -f Dockerfile.arm64v8 -t ${IMAGE_NAME}-arm64v8 .
