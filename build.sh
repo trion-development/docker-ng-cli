@@ -6,7 +6,7 @@ git checkout master
 git pull --rebase
 git checkout -b ${VERSION}
 sed -r -i "s@(.*)NG_CLI_VERSION=.*@\1NG_CLI_VERSION=${VERSION}@g" Dockerfile*
-sed -r -i "s@latest@${VERSOPM}@g" hooks/multi-arch-manifest.json
+sed -r -i "s@latest@${VERSOPM}@g" hooks/multi-arch-manifest.yaml
 git commit -a -m "update to ${VERSION}"
 git checkout master
 ${MASTER} && git merge ${VERSION}
