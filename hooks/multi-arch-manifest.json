@@ -9,3 +9,8 @@ manifests:
       architecture: arm64
       os: linux
       variant: v8
+  - image: trion/ng-cli:latest-arm32v7
+    platform:
+      architecture: arm32
+      os: linux
+      variant: v7
