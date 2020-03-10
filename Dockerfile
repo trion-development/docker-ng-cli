@@ -39,6 +39,7 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
     python \
     procps \
     rsync \
+    curl \
     zip \
     openssh-client \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
