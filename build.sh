@@ -6,10 +6,9 @@ git checkout master
 git pull --rebase
 git checkout -b ${VERSION}
 sed -r -i "s@(.*)NG_CLI_VERSION=.*@\1NG_CLI_VERSION=${VERSION}@g" Dockerfile*
-sed -r -i "s@latest@${VERSOPM}@g" hooks/multi-arch-manifest.yaml
+#sed -r -i "s@latest@${VERSION}@g" hooks/multi-arch-manifest.yaml
 git commit -a -m "update to ${VERSION}"
 git checkout master
-${MASTER} && git merge ${VERSION}
 git push -u origin ${VERSION}
 cd ..
 
@@ -26,7 +25,6 @@ git checkout -b ${VERSION}
 sed -i -r "s@(.*)trion/ng-cli:.*@\1trion/ng-cli:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git checkout master
-${MASTER} && git merge ${VERSION}
 git push -u origin ${VERSION}
 cd ..
 
@@ -41,7 +39,6 @@ git checkout -b ${VERSION}
 sed -i -r "s@(.*)trion/ng-cli-karma:.*@\1trion/ng-cli-karma:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git checkout master
-${MASTER} &&  git merge ${VERSION}
 git push -u origin ${VERSION}
 cd ..
 
