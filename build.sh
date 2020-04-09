@@ -9,6 +9,8 @@ sed -r -i "s@(.*)NG_CLI_VERSION=.*@\1NG_CLI_VERSION=${VERSION}@g" Dockerfile*
 #sed -r -i "s@latest@${VERSION}@g" hooks/multi-arch-manifest.yaml
 git commit -a -m "update to ${VERSION}"
 git checkout master
+sed -r -i "s@(.*)NG_CLI_VERSION=.*@\1NG_CLI_VERSION=${VERSION}@g" Dockerfile*
+git commit -a -m "update to ${VERSION}"
 git push -u origin ${VERSION}
 cd ..
 
