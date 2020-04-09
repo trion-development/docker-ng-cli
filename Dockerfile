@@ -3,6 +3,7 @@
 #or specify angular-cli version
 #docker build --build-arg NG_CLI_VERSION=9.1.1
 
+#alpine does not work, unfortunately
 #FROM node:alpine
 
 #alternative to reduce size instead of alpine, but does not
