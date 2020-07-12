@@ -16,8 +16,8 @@ cd ..
 
 echo "Waiting for build docker-ng-cli"
 sleep 10m #amd64
-sleep 20m #aarch64
-sleep 20m #arm32v7
+# sleep 20m #aarch64
+# sleep 20m #arm32v7
 echo "Build should be done"
 
 cd docker-ng-cli-karma
@@ -54,3 +54,5 @@ cd ..
 cd docker-ng-cli-e2e
 git push --all
 cd ..
+
+echo "(Multi arch build in progress...)"
