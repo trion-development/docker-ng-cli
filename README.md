@@ -44,7 +44,7 @@ If you want to use a shared cache directory for yarn, you will need to mount the
 
 ### New project with yarn
 ```
-docker run -u $(id -u) --rm -v "$PWD":/app trion/ng-cli sh -c "ng set --global packageManager=yarn; ng new MyDemoProject"
+docker run -u $(id -u) --rm -v "$PWD":/app trion/ng-cli sh -c "ng config -g cli.packageManager yarn; ng new MyDemoProject"
 ```
 
 Note the Angular CLI docker container instance is removed after each execution, therefore the selection of the package manager will just influence the current execution.
@@ -56,13 +56,13 @@ Make sure that you already have the cache directory initialized before using it 
 
 Using the regular yarn directory, which should be the right choice when using during regular development:
 ```
-docker run -u $(id -u) --rm -v "$HOME/.cache/yarn":/tmp/.cache/yarn -v "$PWD":/app trion/ng-cli sh -c "ng set --global packageManager=yarn; ng new MyDemoProject"
+docker run -u $(id -u) --rm -v "$HOME/.cache/yarn":/tmp/.cache/yarn -v "$PWD":/app trion/ng-cli sh -c "ng config -g cli.packageManager yarn; ng new MyDemoProject"
 ```
 
 Assuming you have a directory "../yarn-cache" with appropriate access rights, you can use it to create a new project using the following command
 
 ```
-docker run -u $(id -u) --rm -v "$PWD/../yarn-cache":/tmp/.cache/yarn -v "$PWD":/app trion/ng-cli sh -c "ng set --global packageManager=yarn; ng new MyDemoProject"
+docker run -u $(id -u) --rm -v "$PWD/../yarn-cache":/tmp/.cache/yarn -v "$PWD":/app trion/ng-cli sh -c "ng config -g cli.packageManager yarn; ng new MyDemoProject"
 ```
 
 For subsequent package installations (f.e. in a CI build) just use `yarn` instead of `npm`.
