@@ -44,7 +44,7 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
     openssh-client \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ARG NG_CLI_VERSION=10.1.6
+ARG NG_CLI_VERSION=10.1.7
 LABEL angular-cli=$NG_CLI_VERSION node=$NODE_VERSION
 
 # npm 5 uses different userid when installing packages, as workaround su to node when installing
