@@ -2,12 +2,14 @@
 
 Docker image for Angular CLI to use as build container.
 
-Image on dockerhub: https://hub.docker.com/r/trion/ng-cli/
+Image on DockerHub: https://hub.docker.com/r/trion/ng-cli/
 
-Currently this image uses node 12 (npm 6) and node:lts-slim as base distribution.
+Currently this image uses Node 14 (npm 6) and node:lts-slim as base distribution.
 
 The AngularCLI analytics feature is disabled by default to avoid problems in CI environments.
 If you want to opt-in, set the `NG_CLI_ANALYTICS` environment variable to an empty value.
+
+More information, commercial support and training is available at https://www.trion.de/
 
 ## Example usage
 ```
