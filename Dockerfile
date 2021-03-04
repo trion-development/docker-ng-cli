@@ -15,7 +15,7 @@ MAINTAINER trion development GmbH "info@trion.de"
 ARG USER_HOME_DIR="/tmp"
 ARG APP_DIR="/app"
 ARG USER_ID=1000
-ENV USER_ID=${USER_ID}
+# ENV USER_ID=${USER_ID}
 
 #reduce logging, disable angular-cli analytics for ci environment
 ENV NPM_CONFIG_LOGLEVEL=warn NG_CLI_ANALYTICS=false
