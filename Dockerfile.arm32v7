@@ -1,3 +1,4 @@
+#Only used when building without buildx, f.e. dockerhub
 FROM alpine AS builder
 
 # Download QEMU, see https://github.com/docker/hub-feedback/issues/1261

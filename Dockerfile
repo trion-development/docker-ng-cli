@@ -10,7 +10,8 @@
 #we therefore add gcc
 FROM node:lts-slim
 
-MAINTAINER trion development GmbH "info@trion.de"
+#MAINTAINER trion development GmbH "info@trion.de"
+LABEL maintainer="trion development GmbH <docker-image@trion.de>"
 
 ARG USER_HOME_DIR="/tmp"
 ARG APP_DIR="/app"
