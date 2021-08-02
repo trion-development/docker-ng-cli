@@ -21,8 +21,9 @@ jobs:
           SHORTREF=${GITHUB_SHA::8}
 
           #use branch as version
-          if [[ $GITHUB_REF != "master" && $GITHUB_REF == refs/heads/* ]]; then
+          if [[ $GITHUB_REF == refs/heads/* ]]; then
             VERSION=${GITHUB_REF#refs/heads/}
+            [ $VERSION == "master" ] && VERSION=latest
           fi
 
           #use tag as version
