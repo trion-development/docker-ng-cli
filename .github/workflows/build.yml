@@ -21,7 +21,7 @@ jobs:
           SHORTREF=${GITHUB_SHA::8}
 
           #use branch as version
-          if [[ $GITHUB_REF == refs/heads/* ]]; then
+          if [[ $GITHUB_REF != "master" && $GITHUB_REF == refs/heads/* ]]; then
             VERSION=${GITHUB_REF#refs/heads/}
           fi
 
@@ -30,7 +30,7 @@ jobs:
             VERSION=${GITHUB_REF#refs/tags/}
           fi
 
-          #user version as image tag
+          #use version as image tag
           TAGS="${DOCKER_IMAGE}:${VERSION}"
 
           # If version is a number also tag it 'latest'.
