@@ -16,7 +16,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=${{ secrets.DOCKER_USERNAME }}/ng-cli}
+          DOCKER_IMAGE=${{ secrets.DOCKER_USERNAME }}/ng-cli
           VERSION=latest
           SHORTREF=${GITHUB_SHA::8}
 
