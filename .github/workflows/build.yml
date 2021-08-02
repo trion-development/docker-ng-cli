@@ -5,10 +5,6 @@ on:
   schedule:
     - cron: '7 5 * * *'
   push:
-    branches:
-      — '*'
-    tags:
-      — '*'
 
 jobs:
   docker:
