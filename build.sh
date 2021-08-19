@@ -27,6 +27,8 @@ git checkout -b ${VERSION}
 sed -i -r "s@(.*)trion/ng-cli:.*@\1trion/ng-cli:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git checkout master
+sed -i -r "s@(.*)trion/ng-cli:.*@\1trion/ng-cli:${VERSION}@g" Dockerfile
+git commit -a -m "update to ${VERSION}"
 git push -u origin ${VERSION}
 cd ..
 
@@ -41,6 +43,8 @@ git checkout -b ${VERSION}
 sed -i -r "s@(.*)trion/ng-cli-karma:.*@\1trion/ng-cli-karma:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git checkout master
+sed -i -r "s@(.*)trion/ng-cli-karma:.*@\1trion/ng-cli-karma:${VERSION}@g" Dockerfile
+git commit -a -m "update to ${VERSION}"
 git push -u origin ${VERSION}
 cd ..
 
