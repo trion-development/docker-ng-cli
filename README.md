@@ -1,4 +1,4 @@
-# docker-ng-cli
+# docker ng-cli (Angular CLI Container Image)
 
 Docker image for Angular CLI to use as build container.
 
