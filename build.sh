@@ -27,7 +27,8 @@ git checkout -b ${VERSION}
 sed -i -r "s@(.*)trion/ng-cli:.*@\1trion/ng-cli:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git checkout master
-sed -i -r "s@(.*)trion/ng-cli:.*@\1trion/ng-cli:${VERSION}@g" Dockerfile
+#only change label, not base image
+sed -i -r "s@(.*) ng-cli:.*@\1 ng-cli:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git push -u origin ${VERSION}
 cd ..
@@ -43,7 +44,10 @@ git checkout -b ${VERSION}
 sed -i -r "s@(.*)trion/ng-cli-karma:.*@\1trion/ng-cli-karma:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git checkout master
-sed -i -r "s@(.*)trion/ng-cli-karma:.*@\1trion/ng-cli-karma:${VERSION}@g" Dockerfile
+
+#only change label, not base image
+sed -i -r "s@(.*) ng-cli-karma:.*@\1 ng-cli-karma:${VERSION}@g" Dockerfile
+#sed -i -r "s@(.*)trion/ng-cli-karma:.*@\1trion/ng-cli-karma:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git push -u origin ${VERSION}
 cd ..
@@ -51,12 +55,16 @@ cd ..
 echo "Pushing latest..."
 cd docker-ng-cli
 git push --all
+echo "Waiting for build docker-ng-cli"
+sleep 13m
 cd ..
 cd docker-ng-cli-karma
 git push --all
+echo "Waiting for build docker-ng-cli-karma"
+sleep 13m
 cd ..
 cd docker-ng-cli-e2e
 git push --all
 cd ..
 
-echo "(Multi arch build in progress...)"
+echo "(Multi arch build probably in progress...)"
