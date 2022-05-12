@@ -59,6 +59,6 @@ RUN set -xe \
     && mkdir -p $APP_DIR \
     && chown $USER_ID $APP_DIR \
     && chown -R node /usr/local/lib /usr/local/include /usr/local/share /usr/local/bin \
-    && (cd "$USER_HOME_DIR"; su node -c "npm install -g @angular/cli@$NG_CLI_VERSION; npm cache clean --force")
+    && (cd "$USER_HOME_DIR"; su node -c "npm install -g @angular/cli@$NG_CLI_VERSION; npm install -g pnpm; npm cache clean --force")
 
 USER $USER_ID
