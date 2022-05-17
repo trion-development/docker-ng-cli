@@ -38,7 +38,6 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
     dumb-init \
     git \
     build-essential \
-    python \
     python3 \
     procps \
     rsync \
