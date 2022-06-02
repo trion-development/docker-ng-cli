@@ -1,7 +1,7 @@
 #simple angular-cli docker installation
 #docker build -t ng-cli .
 #or specify angular-cli version
-#docker build --build-arg NG_CLI_VERSION=13.0.0
+#docker build --build-arg NG_CLI_VERSION=14.0.0
 
 #FROM node:alpine
 
