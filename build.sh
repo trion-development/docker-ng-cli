@@ -34,7 +34,7 @@ sed -i -r "s@(.*)trion/ng-cli:.*@\1trion/ng-cli:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git checkout master
 #only change label, not base image
-sed -i -r "s@(.*) ng-cli:.*@\1 ng-cli:${VERSION}@g" Dockerfile
+sed -i -r "s@(.*) ng-cli=.*@\1 ng-cli='${VERSION}'@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git push -u origin ${VERSION}
 cd ..
@@ -52,7 +52,7 @@ git commit -a -m "update to ${VERSION}"
 git checkout master
 
 #only change label, not base image
-sed -i -r "s@(.*) ng-cli-karma:.*@\1 ng-cli-karma:${VERSION}@g" Dockerfile
+sed -i -r "s@(.*) ng-cli-karma=.*@\1 ng-cli-karma='${VERSION}'@g" Dockerfile
 #sed -i -r "s@(.*)trion/ng-cli-karma:.*@\1trion/ng-cli-karma:${VERSION}@g" Dockerfile
 git commit -a -m "update to ${VERSION}"
 git push -u origin ${VERSION}
