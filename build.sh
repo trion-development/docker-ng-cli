@@ -3,7 +3,7 @@ set -Eeuxo pipefail
 
 # cd docker-ng-cli
 
-if [[ ${VERSION} -eq 0 ]] ; then
+if [[ "${VERSION}" -eq 0 ]] ; then
     echo 'Please provide version as environment, f.e. VERSION=1.0.0.BETA1'
     exit 1
 fi
