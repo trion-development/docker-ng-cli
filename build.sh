@@ -1,4 +1,5 @@
 #!/bin/bash
+set -Eeuxo pipefail
 
 # cd docker-ng-cli
 
