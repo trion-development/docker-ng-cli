@@ -8,7 +8,7 @@
 #alternative to reduce size instead of alpine, but does not
 #include build tools for native compilation of npm packages
 #we therefore add gcc
-FROM node:lts-slim
+FROM node:16-slim
 
 #MAINTAINER trion development GmbH "info@trion.de"
 LABEL maintainer="trion development GmbH <docker-image@trion.de>"

@@ -16,7 +16,7 @@ RUN apk add curl && curl -L ${QEMU_URL} | tar zxvf - -C . --strip-components 1
 #alternative to reduce size instead of alpine, but does not
 #include build tools for native compilation of npm packages
 #we therefore add gcc
-FROM arm64v8/node:lts-slim
+FROM arm64v8/node:16-slim
 
 # Add QEMU
 COPY --from=builder qemu-aarch64-static /usr/bin
