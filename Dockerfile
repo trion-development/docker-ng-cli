@@ -19,7 +19,7 @@ ARG USER_ID=1000
 # ENV USER_ID=${USER_ID}
 
 #reduce logging, disable angular-cli analytics for ci environment
-ENV NPM_CONFIG_LOGLEVEL=warn NG_CLI_ANALYTICS=false
+ENV NPM_CONFIG_LOGLEVEL=warn NG_CLI_ANALYTICS=false TZ=UTC
 
 #angular-cli rc0 crashes with .angular-cli.json in user home
 ENV HOME "$USER_HOME_DIR"
