@@ -23,6 +23,7 @@ For example use
 ```
 cd MyDemo
 docker run -u $(id -u) --rm -p 4200:4200 -v "$PWD":/app trion/ng-cli ng serve --host 0.0.0.0
+docker run -u $(id -u) --rm -p 4200:4200 -v "$PWD":/app trion/ng-cli ng serve --host=:: # ipv6
 ```
 
 If you want to clone additional git repositories, f.e. from package.json, and you run with a different user than uid 1000 you need to mount the passwd since git requires to resolve the uid.
