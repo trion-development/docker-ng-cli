@@ -13,10 +13,10 @@ git pull --rebase
 git checkout -b ${VERSION}
 sed -r -i "s@(.*)NG_CLI_VERSION=.*@\1NG_CLI_VERSION=${VERSION}@g" Dockerfile*
 #sed -r -i "s@latest@${VERSION}@g" hooks/multi-arch-manifest.yaml
-git commit -a -m "update to ${VERSION}"
+git commit -a -m "update to ${VERSION}" || true
 git checkout master
 sed -r -i "s@(.*)NG_CLI_VERSION=.*@\1NG_CLI_VERSION=${VERSION}@g" Dockerfile*
-git commit -a -m "update to ${VERSION}"
+git commit -a -m "update to ${VERSION}" || true
 git push -u origin ${VERSION}
 cd ..
 
@@ -32,11 +32,11 @@ git checkout master
 git pull --rebase
 git checkout -b ${VERSION}
 sed -i -r "s@(.*)trion/ng-cli:.*@\1trion/ng-cli:${VERSION}@g" Dockerfile
-git commit -a -m "update to ${VERSION}"
+git commit -a -m "update to ${VERSION}" || true
 git checkout master
 #only change label, not base image
 sed -i -r "s@(.*) ng-cli=.*@\1 ng-cli='${VERSION}'@g" Dockerfile
-git commit -a -m "update to ${VERSION}"
+git commit -a -m "update to ${VERSION}" || true
 git push -u origin ${VERSION}
 cd ..
 
@@ -49,13 +49,13 @@ git checkout master
 git pull --rebase
 git checkout -b ${VERSION}
 sed -i -r "s@(.*)trion/ng-cli-karma:.*@\1trion/ng-cli-karma:${VERSION}@g" Dockerfile
-git commit -a -m "update to ${VERSION}"
+git commit -a -m "update to ${VERSION}" || true
 git checkout master
 
 #only change label, not base image
 sed -i -r "s@(.*) ng-cli-karma=.*@\1 ng-cli-karma='${VERSION}'@g" Dockerfile
 #sed -i -r "s@(.*)trion/ng-cli-karma:.*@\1trion/ng-cli-karma:${VERSION}@g" Dockerfile
-git commit -a -m "update to ${VERSION}"
+git commit -a -m "update to ${VERSION}" || true
 git push -u origin ${VERSION}
 cd ..
 
