@@ -61,15 +61,14 @@ RUN apt-get update && apt-get install -qqy --no-install-recommends \
 ARG NG_CLI_VERSION=22.2.3
 LABEL angular-cli=$NG_CLI_VERSION node=$NODE_VERSION
 
-# npm 5 uses different userid when installing packages, as workaround su to node when installing
-# see https://github.com/npm/npm/issues/16766
+# install as root to avoid a recursive chown, which would copy all of /usr/local into another layer
 RUN set -xe \
     && mkdir -p $USER_HOME_DIR \
     && chown $USER_ID $USER_HOME_DIR \
     && chmod a+rw $USER_HOME_DIR \
     && mkdir -p $APP_DIR \
     && chown $USER_ID $APP_DIR \
-    && chown -R node /usr/local/lib /usr/local/include /usr/local/share /usr/local/bin \
-    && (cd "$USER_HOME_DIR"; su node -c "npm install -g @angular/cli@$NG_CLI_VERSION; npm install -g yarn; chmod +x /usr/local/bin/yarn; npm cache clean --force")
+    && (cd "$USER_HOME_DIR"; npm install -g @angular/cli@$NG_CLI_VERSION yarn; chmod +x /usr/local/bin/yarn; npm cache clean --force) \
+    && rm -rf "$USER_HOME_DIR"/.npm "$USER_HOME_DIR"/.cache
 
 USER $USER_ID
